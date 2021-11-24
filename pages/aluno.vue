@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <h1>Alunos</h1>
+    <h1>Alunos JMD</h1>
     <v-dialog v-model="dialog" persistent max-width="600px">
       <template v-slot:activator="{ on, attrs }">
         <v-row>
