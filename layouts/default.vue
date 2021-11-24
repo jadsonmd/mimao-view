@@ -108,11 +108,11 @@ export default {
           title: 'Welcome',
           to: '/'
         },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
-        },
+        // {
+        //   icon: 'mdi-chart-bubble',
+        //   title: 'Inspire',
+        //   to: '/inspire'
+        // },
         {
           icon: 'mdi-alien-outline',
           title: 'Aluno',
@@ -132,7 +132,7 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'TeaTime Treino'
+      title: 'TeaTime Treino (Mimão)'
     }
   }
 }

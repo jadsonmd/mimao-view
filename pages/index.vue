@@ -1,76 +1,68 @@
 <template>
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
-      <v-card class="logo py-4 d-flex justify-center">
-        <NuxtLogo />
-        <VuetifyLogo />
+      <v-card class="logo py-1 d-flex justify-center">
+      <img
+        src="/cropped-favicon.png"
+        alt="Teatime"
+      >
       </v-card>
       <v-card>
         <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
+          Gerencie seus treinos com o Mimão.
         </v-card-title>
         <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
+          <p>Abaixo segue informações de como comprar suplementos ou utilizar o app.</p>
           <p>
-            For more information on Vuetify, check out the <a
-              href="https://vuetifyjs.com"
+            Acesse o aplicativo de treino e divirta-se <a
+              href="https://mimao.teatimesuplementos.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              documentation
-            </a>.
+              mimao
+            </a>
           </p>
           <p>
-            If you have questions, please join the official <a
-              href="https://chat.vuetifyjs.com/"
+            Para conhecer a empresa acesse <a
+              href="https://teatimesuplementos.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              teatimesuplementos
+            </a>
+          </p>
+          <p>
+            Compre produtos na nossa loja virtual <a
+              href="https://teatimesuplementos.com/loja"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              loja
+            </a>
+          </p>
+          <p>
+            Compre também pelo what`s app <a
+              href="https://wa.me/554835351003"
               target="_blank"
               rel="noopener noreferrer"
               title="chat"
             >
-              discord
-            </a>.
+              what`s app
+            </a>
           </p>
           <p>
-            Find a bug? Report it on the github <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
+            Segue no instagram e fique por dentro das novidades <a
+              href="https://instagram.com/teatimesupplements"
               target="_blank"
               rel="noopener noreferrer"
-              title="contribute"
+              title="fanpage"
             >
-              issue board
-            </a>.
+              teatimesupplements
+            </a>
           </p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3">
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt Documentation
-          </a>
-          <br>
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt GitHub
-          </a>
+          
+          <p>Obrigado.</p>
         </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="primary"
-            nuxt
-            to="/inspire"
-          >
-            Continue
-          </v-btn>
-        </v-card-actions>
       </v-card>
     </v-col>
   </v-row>
