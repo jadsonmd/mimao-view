@@ -283,12 +283,12 @@ export default {
   },
   methods: {
     async findExercicios() {
-      const response = await axios.get("http://localhost:8080/exercicio");
+      const response = await axios.get("/exercicio");
       this.exercicios = response.data;
     },
 
     async findAlunos() {
-      const response = await axios.get("http://localhost:8080/aluno");
+      const response = await axios.get("/aluno");
       this.alunos = response.data;
     },
 
@@ -376,7 +376,7 @@ export default {
       console.log(this.historicoTreino.treinos);
 
       const response = await axios.post(
-        `http://localhost:8080/aluno/historicoTreinoAluno/${this.aluno.id}`,
+        `/aluno/historicoTreinoAluno/${this.aluno.id}`,
         this.historicoTreino
       );
       this.aluno = response.data;

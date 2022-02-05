@@ -134,7 +134,7 @@ export default {
       console.log(this.exercicio);
 
       const response = await axios.post(
-        `http://localhost:8080/exercicio`,
+        `/exercicio`,
         this.exercicio
       );
       this.exercicio = response.data;
@@ -142,7 +142,7 @@ export default {
       this.dialog = false;
     },
     async buscarExercicio() {
-      const response = await axios.get(`http://localhost:8080/exercicio`);
+      const response = await axios.get(`/exercicio`);
       this.exercicios = [...response.data];
     },
     fecharDialog() {

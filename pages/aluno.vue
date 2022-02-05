@@ -163,7 +163,7 @@ export default {
       console.log(this.aluno);
 
       const response = await axios.post(
-        `http://localhost:8080/aluno`,
+        `/aluno`,
         this.aluno
       );
       this.aluno = response.data;
@@ -171,7 +171,7 @@ export default {
       this.dialog = false;
     },
     async buscarAluno() {
-      const response = await axios.get(`http://localhost:8080/aluno`);
+      const response = await axios.get(`/aluno`);
       this.alunos = [...response.data];
     },
     fecharDialog() {
