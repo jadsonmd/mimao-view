@@ -283,12 +283,12 @@ export default {
   },
   methods: {
     async findExercicios() {
-      const response = await axios.get("/exercicio");
+      const response = await axios.get("/api/exercicio");
       this.exercicios = response.data;
     },
 
     async findAlunos() {
-      const response = await axios.get("/aluno");
+      const response = await axios.get("/api/aluno");
       this.alunos = response.data;
     },
 
@@ -376,15 +376,15 @@ export default {
       console.log(this.historicoTreino.treinos);
 
       const response = await axios.post(
-        `/aluno/historicoTreinoAluno/${this.aluno.id}`,
+        `/api/aluno/historicoTreinoAluno/${this.aluno.id}`,
         this.historicoTreino
       );
       this.aluno = response.data;
     },
   },
   mounted() {
-    this.findExercicios();
-    this.findAlunos();
+    // this.findExercicios(); Comentado para não dar erro enquanto não tiver o backend
+    // this.findAlunos();
   },
 };
 </script>

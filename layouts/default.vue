@@ -83,6 +83,14 @@
           </v-list-item-action>
           <v-list-item-title>Switch drawer (click me)</v-list-item-title>
         </v-list-item>
+        <v-list-item @click.native="$auth.logout()">
+          <v-list-item-action>
+            <v-icon light>
+              mdi-logout
+            </v-icon>
+          </v-list-item-action>
+          <v-list-item-title>Logout</v-list-item-title>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-footer
@@ -97,6 +105,7 @@
 
 <script>
 export default {
+  middleware: ['routes'],
   data () {
     return {
       clipped: false,
@@ -106,7 +115,7 @@ export default {
         {
           icon: 'mdi-apps',
           title: 'Welcome',
-          to: '/'
+          to: '/home'
         },
         // {
         //   icon: 'mdi-chart-bubble',

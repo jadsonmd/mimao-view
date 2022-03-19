@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <h1>Alunos JMD</h1>
+    <h1>Alunos</h1>
     <v-dialog v-model="dialog" persistent max-width="600px">
       <template v-slot:activator="{ on, attrs }">
         <v-row>
@@ -156,6 +156,7 @@ export default {
       "Panturrilha",
       "Lombar",
       "Braço",
+      "Abdomen",
     ],
   }),
   methods: {
@@ -163,7 +164,7 @@ export default {
       console.log(this.aluno);
 
       const response = await axios.post(
-        `/aluno`,
+        `http://localhost:8080/aluno`,
         this.aluno
       );
       this.aluno = response.data;
@@ -171,7 +172,7 @@ export default {
       this.dialog = false;
     },
     async buscarAluno() {
-      const response = await axios.get(`/aluno`);
+      const response = await axios.get(`http://localhost:8080/aluno`);
       this.alunos = [...response.data];
     },
     fecharDialog() {
