@@ -16,7 +16,7 @@
       </template>
       <v-card>
         <v-card-title>
-          <span class="text-h5">Cadastrar Aluno</span>
+          <span class="text-h5">Cadastrar Aluno JMD</span>
         </v-card-title>
         <v-card-text>
           <v-container>
