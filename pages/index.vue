@@ -12,6 +12,7 @@
           <p>Abaixo segue informações de como comprar suplementos ou utilizar o app.</p>
           <p>Obrigado.</p>
        </v-card-text>
+      </v-card>
     </v-col>
   </v-row>
 </template>
