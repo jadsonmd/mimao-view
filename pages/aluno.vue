@@ -160,10 +160,8 @@ export default {
   }),
   methods: {
     async salvarAluno() {
-      console.log(this.aluno);
-
       const response = await axios.post(
-        `/aluno`,
+        `http://localhost:8080/aluno/633c3d3e7ca8a5365f4ea859`,
         this.aluno
       );
       this.aluno = response.data;
@@ -171,7 +169,7 @@ export default {
       this.dialog = false;
     },
     async buscarAluno() {
-      const response = await axios.get(`/aluno`);
+      const response = await axios.get(`http://localhost:8080/aluno/633c3d3e7ca8a5365f4ea859`);
       this.alunos = [...response.data];
     },
     fecharDialog() {

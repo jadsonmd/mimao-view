@@ -16,7 +16,7 @@
     <v-col cols="12">
       <v-text-field
         label="Nome do treino"
-        v-model="historicoTreino.nome"
+        v-model="ficha.nome"
         hint="Ex: Hipertrofia com foco em Pernas / Perda de Gordura / AVM"
       ></v-text-field>
     </v-col>
@@ -32,7 +32,7 @@
       >
         <template v-slot:activator="{ on, attrs }">
           <v-text-field
-            v-model="historicoTreino.dataInicioTreino"
+            v-model="ficha.dataInicioTreino"
             label="Data inicio do treino"
             prepend-icon="mdi-calendar"
             readonly
@@ -41,7 +41,7 @@
           ></v-text-field>
         </template>
         <v-date-picker
-          v-model="historicoTreino.dataInicioTreino"
+          v-model="ficha.dataInicioTreino"
           @input="menu2 = false"
         ></v-date-picker>
       </v-menu>
@@ -50,7 +50,7 @@
     <v-col cols="12">
       <v-select
         :items="tiposTreinos"
-        v-model="historicoTreino.tipo"
+        v-model="ficha.tipo"
         label="Escolha o tipo do treino"
       ></v-select>
     </v-col>
@@ -59,7 +59,7 @@
       <template>
         <v-expansion-panels>
           <v-expansion-panel
-            v-for="(item, i) in this.historicoTreino.treinos"
+            v-for="(item, i) in this.ficha.treinos"
             :key="i"
           >
             <v-expansion-panel-header>
@@ -209,7 +209,7 @@ export default {
     aluno: {},
     exercicios: [],
     exercicio: {},
-    historicoTreino: {
+    ficha: {
       treinos: [],
       dataInicioTreino: new Date(
         Date.now() - new Date().getTimezoneOffset() * 60000
@@ -283,12 +283,12 @@ export default {
   },
   methods: {
     async findExercicios() {
-      const response = await axios.get("/exercicio");
+      const response = await axios.get("http://localhost:8080/exercicio");
       this.exercicios = response.data;
     },
 
     async findAlunos() {
-      const response = await axios.get("/aluno");
+      const response = await axios.get("http://localhost:8080/aluno/633c3d3e7ca8a5365f4ea859");
       this.alunos = response.data;
     },
 
@@ -340,46 +340,56 @@ export default {
     },
     adicionarTreino() {
       if (this.exerciciosDoAluno.length !== 0) {
-        this.historicoTreino.treinos.push({
+        this.ficha.treinos.push({
           tipo: this.getTipoTreino(),
+          nome: `Treino - ${this.getTipoTreino()}`,
           exercicios: this.exerciciosDoAluno,
         });
         this.exerciciosDoAluno = [];
       }
     },
     getTipoTreino() {
-      if (this.historicoTreino.treinos.length === 0) {
+      if (this.ficha.treinos.length === 0) {
         return "A";
-      } else if (this.historicoTreino.treinos.length === 1) {
+      } else if (this.ficha.treinos.length === 1) {
         return "B";
-      } else if (this.historicoTreino.treinos.length === 2) {
+      } else if (this.ficha.treinos.length === 2) {
         return "C";
-      } else if (this.historicoTreino.treinos.length === 3) {
+      } else if (this.ficha.treinos.length === 3) {
         return "D";
-      } else if (this.historicoTreino.treinos.length === 4) {
+      } else if (this.ficha.treinos.length === 4) {
         return "E";
-      } else if (this.historicoTreino.treinos.length === 5) {
+      } else if (this.ficha.treinos.length === 5) {
         return "F";
-      } else if (this.historicoTreino.treinos.length === 6) {
+      } else if (this.ficha.treinos.length === 6) {
         return "G";
-      } else if (this.historicoTreino.treinos.length === 7) {
+      } else if (this.ficha.treinos.length === 7) {
         return "H";
-      } else if (this.historicoTreino.treinos.length === 8) {
+      } else if (this.ficha.treinos.length === 8) {
         return "I";
-      } else if (this.historicoTreino.treinos.length === 9) {
+      } else if (this.ficha.treinos.length === 9) {
         return "J";
       }
     },
 
     async salvarTreino() {
-      console.log(this.alunos);
-      console.log(this.historicoTreino.treinos);
+      this.ficha.dataInicioTreino = new Date(this.ficha.dataInicioTreino);
 
-      const response = await axios.post(
-        `/aluno/historicoTreinoAluno/${this.aluno.id}`,
-        this.historicoTreino
-      );
-      this.aluno = response.data;
+      let response = {};
+      if (!this.ficha.id) {
+        response = await axios.post(
+          `http://localhost:8080/ficha/633c3d3e7ca8a5365f4ea859/${this.aluno.id}`,
+          this.ficha
+        );
+        
+      } else {
+        response = await axios.put(
+          `http://localhost:8080/ficha/633c3d3e7ca8a5365f4ea859/${this.aluno.id}`,
+          this.ficha
+        );
+      }
+
+      this.ficha = response.data;
     },
   },
   mounted() {
